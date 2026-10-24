@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweetbites — Dessert & OMBENO Drinks</title>
+  <meta name="description"
+    content="Temukan pilihan dessert Sweetbites yang menggugah selera, dilengkapi OMBENO sebagai sub-brand minuman untuk menemani setiap aktivitas.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="icon" href="logo-minimal.png">
+
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary: #3951b3;
+      --primary-dark: #263780;
+      --soft-blue: #eef1ff;
+      --cream: #fff8ef;
+      --white: #ffffff;
+      --dark-text: #242633;
+      --muted-text: #707586;
+      --soft-pink: #f8e7ed;
+      --tea-green: #e8f1df;
+      --tea-brown: #a86b3d;
+      --tea-brown-light: #f4ece6;
+
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --transition: all 0.3s ease;
+    }
+
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--dark-text);
+      background-color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    /* Typography */
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted-text);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 48px auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(57, 81, 179, 0.2);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--soft-blue);
+      transform: translateY(-2px);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--dark-text);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      margin-left: 16px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--cream);
+      padding: 160px 0 80px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative Background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background-color: var(--soft-blue);
+      border-radius: 50%;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 500px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: var(--dark-text);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted-text);
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Placeholder for Hero Images */
+    .hero-image-placeholder {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(135deg, var(--soft-pink), var(--soft-blue));
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-placeholder img {
+      width: 80%;
+      height: auto;
+      object-fit: contain;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    /* Brand Intro */
+    .brand-intro {
+      text-align: center;
+      background-color: var(--white);
+    }
+
+    .brand-intro-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: var(--dark-text);
+      line-height: 1.8;
+    }
+
+    .brand-intro-content strong {
+      color: var(--primary);
+    }
+
+    /* Product Sections */
+    .dessert-section {
+      background-color: var(--cream);
+    }
+
+    .ombeno-section {
+      background-color: var(--soft-blue);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .product-card {
+      background-color: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 250px;
+      background-color: var(--soft-blue);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Placeholder styles for products */
+    .placeholder-dessert {
+      background: linear-gradient(45deg, var(--soft-pink), var(--cream));
+    }
+
+    .placeholder-oreo {
+      background: linear-gradient(45deg, #e0e0e0, var(--white));
+    }
+
+    .placeholder-biscoff {
+      background: linear-gradient(45deg, #f5d4b1, #fff);
+    }
+
+    .placeholder-matcha {
+      background: linear-gradient(45deg, var(--tea-green), #fff);
+    }
+
+    .placeholder-thai {
+      background: linear-gradient(45deg, var(--tea-brown-light), #fff);
+    }
+
+    .product-image span {
+      color: var(--muted-text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .product-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-brand {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted-text);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .ombeno-brand {
+      color: var(--primary);
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark-text);
+      margin-bottom: 8px;
+    }
+
+    .product-volume {
+      font-size: 0.9rem;
+      color: var(--muted-text);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      color: var(--muted-text);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* OMBENO Category Headers */
+    .ombeno-category-title {
+      font-size: 1.5rem;
+      color: var(--dark-text);
+      margin: 40px 0 24px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ombeno-category-title::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 24px;
+      background-color: var(--primary);
+      border-radius: 4px;
+    }
+
+    .green-tea-title::before {
+      background-color: #7fbc5b;
+    }
+
+    .thai-tea-title::before {
+      background-color: var(--tea-brown);
+    }
+
+    /* Features */
+    .features-section {
+      background-color: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .feature-brand-title {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: var(--soft-blue);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      color: var(--muted-text);
+      font-size: 0.95rem;
+    }
+
+    /* Lifestyle */
+    .lifestyle-section {
+      background-color: var(--cream);
+      text-align: center;
+    }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .lifestyle-img {
+      width: 100%;
+      height: 300px;
+      background-color: #eaeaea;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--muted-text);
+      background: linear-gradient(45deg, var(--soft-blue), var(--soft-pink));
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .cta-section h2 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background-color: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-white:hover {
+      background-color: var(--soft-blue);
+      transform: translateY(-2px);
+    }
+
+    /* Contact & Footer */
+    .footer {
+      background-color: var(--primary-dark);
+      color: var(--white);
+      padding: 80px 0 24px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .footer-brand img {
+      height: 60px;
+      margin-bottom: 16px;
+      /* Filter putih agar logo biru terlihat di background gelap */
+      /* filter: brightness(0) invert(1); */
+    }
+
+    .footer-brand p {
+      color: #a0a8c8;
+      font-size: 0.95rem;
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a,
+    .footer-col ul li {
+      color: #a0a8c8;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      text-align: center;
+      color: #a0a8c8;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-content {
+        margin: 0 auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .lifestyle-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        /* Add mobile menu toggle in JS */
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        padding: 24px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lifestyle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <!-- Logo Lengkap -->
+        <img src="logo-sweetbites.png" alt="Sweetbites Logo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none; font-size: 24px; font-weight: 800; color: var(--primary);">Sweetbites.</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#tentang">Tentang Kami</a>
+        <a href="#dessert">Sweetbites Dessert</a>
+        <a href="#ombeno">OMBENO Drinks</a>
+        <a href="#keunggulan">Keunggulan</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#pesan" style="color: white;" class="btn btn-primary nav-cta">Pesan Sekarang</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="eyebrow">Your Sweet Moments</span>
+        <h1>A Little Sweetness, <br><span>A Lot of Happiness.</span></h1>
+        <p>Temukan pilihan dessert Sweetbites yang menggugah selera, lalu lengkapi momen favoritmu dengan minuman botol
+          OMBENO. Dua pilihan untuk menemani hari yang lebih menyenangkan.</p>
+        <div class="hero-buttons">
+          <a href="#dessert" class="btn btn-primary">Jelajahi Dessert</a>
+          <a href="#ombeno" class="btn btn-outline">Lihat Minuman OMBENO</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-placeholder">
+          <!-- Placeholder Gambar Hero -->
+          <span style="z-index:1; text-align:center;">Foto Produk Dessert & OMBENO <br>(Placeholder)</span>
+          <!-- Jika Anda punya gambar hero transparan, pasang di sini -->
+          <!-- <img src="images/hero-product.png" alt="Sweetbites Dessert"> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Intro -->
+  <section class="brand-intro section-padding" id="tentang">
+    <div class="container">
+      <h2 class="section-title">Sweet Moments Start Here.</h2>
+      <div class="brand-intro-content">
+        <p><strong>Sweetbites</strong> hadir untuk menemani momen spesial maupun keseharianmu melalui pilihan dessert
+          yang menarik. Untuk melengkapi pengalaman tersebut, tersedia <strong>OMBENO</strong>, sub-brand minuman dengan
+          pilihan Green Tea dan Thai Tea dalam kemasan botol.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dessert Collection -->
+  <section class="dessert-section section-padding" id="dessert">
+    <div class="container">
+      <h2 class="section-title">Discover Your Sweet Favorite.</h2>
+      <p class="section-subtitle">Temukan dessert favoritmu dengan pilihan rasa dan tekstur yang menggoda.</p>
+
+      <div class="product-grid" id="dessertGrid">
+        <!-- Produk Dessert akan dimuat via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- OMBENO Collection -->
+  <section class="ombeno-section section-padding" id="ombeno">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--primary);">Complete Your Sweet Moment with OMBENO.</h2>
+      <p class="section-subtitle">Lengkapi momen manismu dengan pilihan minuman Green Tea dan Thai Tea dari OMBENO.</p>
+
+      <h3 class="ombeno-category-title green-tea-title">OMBENO Green Tea</h3>
+      <div class="product-grid" id="greenTeaGrid">
+        <!-- Green Tea akan dimuat via JavaScript -->
+      </div>
+
+      <h3 class="ombeno-category-title thai-tea-title">OMBENO Thai Tea</h3>
+      <div class="product-grid" id="thaiTeaGrid">
+        <!-- Thai Tea akan dimuat via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Keunggulan -->
+  <section class="features-section section-padding" id="keunggulan">
+    <div class="container">
+      <h2 class="section-title">Sweet Treats, Better Moments.</h2>
+
+      <div class="features-grid">
+        <!-- Sweetbites Features -->
+        <div>
+          <h3 class="feature-brand-title">Sweetbites</h3>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="cake-slice"></i></div>
+            <div class="feature-text">
+              <h4>Pilihan Dessert Beragam</h4>
+              <p>Temukan enam pilihan dessert dengan karakter yang berbeda.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="tag"></i></div>
+            <div class="feature-text">
+              <h4>Pilihan Harga yang Jelas</h4>
+              <p>Informasi harga tersedia untuk setiap produk agar kamu lebih mudah menentukan pilihan.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="camera"></i></div>
+            <div class="feature-text">
+              <h4>Visual yang Menggugah Selera</h4>
+              <p>Berbagai sajian dessert ditampilkan dengan visual yang menarik.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- OMBENO Features -->
+        <div>
+          <h3 class="feature-brand-title">OMBENO</h3>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="cup-soda"></i></div>
+            <div class="feature-text">
+              <h4>Dua Pilihan Varian</h4>
+              <p>Pilih Green Tea atau Thai Tea sesuai selera.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="maximize"></i></div>
+            <div class="feature-text">
+              <h4>Beragam Ukuran Botol</h4>
+              <p>Tersedia ukuran 220 ml, 230 ml, 500 ml, dan 1 liter sesuai variannya.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="briefcase"></i></div>
+            <div class="feature-text">
+              <h4>Praktis untuk Berbagai Momen</h4>
+              <p>Minuman dalam kemasan botol yang mudah dibawa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle (Combo) -->
+  <section class="lifestyle-section section-padding">
+    <div class="container">
+      <h2 class="section-title">Make It a Sweeter Combo.</h2>
+      <p class="section-subtitle">Temukan kombinasi dessert dan minuman favoritmu untuk melengkapi waktu santai.</p>
+
+      <div class="lifestyle-grid">
+        <div class="lifestyle-img">Oreo Cheese + Green Tea</div>
+        <div class="lifestyle-img">Tiramisu Cheese + Thai Tea</div>
+        <div class="lifestyle-img">Banana Pudding + Green Tea</div>
+      </div>
+
+      <div style="margin-top: 48px;">
+        <a href="#dessert" class="btn btn-primary">Pilih Produk Favoritmu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="kontak">
+    <div class="container">
+      <h2>Ready for Something Sweet?</h2>
+      <p>Pilih dessert Sweetbites favoritmu atau lengkapi momenmu dengan minuman OMBENO. Temukan pilihan yang sesuai dan
+        lakukan pemesanan dengan mudah.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/6281234567890?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20dessert."
+          target="_blank" class="btn btn-white">Pesan Dessert</a>
+        <a href="https://wa.me/6281234567890?text=Halo%20OMBENO,%20saya%20ingin%20memesan%20minuman." target="_blank"
+          class="btn btn-outline" style="border-color: white; color: white;">Pesan Minuman</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <!-- Logo Minimal di Footer -->
+          <img src="logo-sweetbites.png" alt="Sweetbites"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span
+            style="display:none; font-size: 24px; font-weight: 800; color: white; margin-bottom: 16px; display: block;">Sweetbites.</span>
+          <p>Sweetbites menghadirkan pilihan dessert untuk momen manis, dilengkapi OMBENO sebagai pilihan minuman untuk
+            menemani setiap aktivitas.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Katalog</h4>
+          <ul>
+            <li><a href="#dessert">Sweetbites Dessert</a></li>
+            <li><a href="#ombeno">OMBENO Drinks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak Kami</h4>
+          <ul>
+            <li><i data-lucide="message-circle" style="display:inline; width:16px; height:16px; margin-right:8px;"></i>
+              WhatsApp Business</li>
+            <li><i data-lucide="instagram" style="display:inline; width:16px; height:16px; margin-right:8px;"></i>
+              @sweetbites.id</li>
+            <li><i data-lucide="mail" style="display:inline; width:16px; height:16px; margin-right:8px;"></i>
+              hello@sweetbites.id</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Sweetbites & OMBENO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Inisialisasi Lucide Icons
+    lucide.createIcons();
+
+    // Tahun Dinamis di Footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Tutup menu saat link diklik (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+      } else {
+        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+      }
+    });
+
+    // === DATA PRODUK ===
+
+    // 1. Data Produk Sweetbites
+    const desserts = [
+      {
+        id: 'sweetbites-banana-pudding-stroberi',
+        name: 'Banana Pudding Stroberi',
+        price: 15000,
+        desc: 'Perpaduan banana pudding dan stroberi dalam sajian dessert yang menarik untuk menemani waktu santai.',
+        placeholderClass: 'placeholder-dessert'
+      },
+      {
+        id: 'sweetbites-tiramisu-cheese',
+        name: 'Tiramisu Cheese',
+        price: 15000,
+        desc: 'Pilihan dessert dengan karakter tiramisu dan sentuhan cheese yang menggugah selera.',
+        placeholderClass: 'placeholder-dessert'
+      },
+      {
+        id: 'sweetbites-cheesecuit',
+        name: 'Cheesecuit',
+        price: 15000,
+        desc: 'Pilihan dessert dengan perpaduan biskuit dan cheese yang cocok untuk menemani momen manis.',
+        placeholderClass: 'placeholder-dessert'
+      },
+      {
+        id: 'sweetbites-oreo-cheese',
+        name: 'Oreo Cheese',
+        price: 15000,
+        desc: 'Perpaduan Oreo dan cheese dalam sajian dessert yang menarik untuk dinikmati kapan saja.',
+        placeholderClass: 'placeholder-oreo'
+      },
+      {
+        id: 'sweetbites-lotus-biscoff-cheese',
+        name: 'Lotus Biscoff Cheese',
+        price: 20000,
+        desc: 'Pilihan dessert dengan karakter biskuit Lotus Biscoff dan sentuhan cheese yang menggugah selera.',
+        placeholderClass: 'placeholder-biscoff'
+      },
+      {
+        id: 'sweetbites-cheese-cake',
+        name: 'Cheese Cake',
+        price: 15000,
+        desc: 'Cheese cake dengan tampilan menggoda, cocok untuk melengkapi waktu santai dan momen spesial.',
+        placeholderClass: 'placeholder-dessert'
+      }
+    ];
+
+    // 2. Data Produk OMBENO
+    const ombenoDrinks = [
+      // Green Tea
+      { id: 'ombeno-green-tea-1l', name: 'Green Tea', volume: '1 Liter', price: 42000, type: 'green' },
+      { id: 'ombeno-green-tea-500ml', name: 'Green Tea', volume: '500 ml', price: 22000, type: 'green' },
+      { id: 'ombeno-green-tea-220ml', name: 'Green Tea', volume: '220 ml', price: 10000, type: 'green' },
+      // Thai Tea
+      { id: 'ombeno-thai-tea-1l', name: 'Thai Tea', volume: '1 Liter', price: 40000, type: 'thai' },
+      { id: 'ombeno-thai-tea-500ml', name: 'Thai Tea', volume: '500 ml', price: 21000, type: 'thai' },
+      { id: 'ombeno-thai-tea-230ml', name: 'Thai Tea', volume: '230 ml', price: 10000, type: 'thai' }
+    ];
+
+    // Fungsi Format Rupiah
+    const formatRupiah = (angka) => {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0
+      }).format(angka);
+    };
+
+    // Fungsi Generate Link WhatsApp
+    const getWhatsAppLink = (brand, productName, price, volume = '') => {
+      const phone = '6281234567890'; // GANTI DENGAN NOMOR WHATSAPP ASLI
+      let message = '';
+      if (brand === 'Sweetbites') {
+        message = `Halo Sweetbites, saya ingin memesan ${productName} dengan harga ${formatRupiah(price)}.`;
+      } else {
+        message = `Halo OMBENO, saya ingin memesan ${productName} ukuran ${volume} dengan harga ${formatRupiah(price)}.`;
+      }
+      return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    };
+
+    // Render Produk Dessert
+    const dessertGrid = document.getElementById('dessertGrid');
+    desserts.forEach(product => {
+      const waLink = getWhatsAppLink('Sweetbites', product.name, product.price);
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+                <div class="product-image ${product.placeholderClass}">
+                    <span>Foto ${product.name}</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Sweetbites — Dessert</span>
+                    <h3 class="product-title">${product.name}</h3>
+                    <p class="product-desc">${product.desc}</p>
+                    <div class="product-footer">
+                        <span class="product-price">${formatRupiah(product.price)}</span>
+                        <a href="${waLink}" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Pesan Sekarang</a>
+                    </div>
+                </div>
+            `;
+      dessertGrid.appendChild(card);
+    });
+
+    // Render Produk OMBENO
+    const greenTeaGrid = document.getElementById('greenTeaGrid');
+    const thaiTeaGrid = document.getElementById('thaiTeaGrid');
+
+    ombenoDrinks.forEach(product => {
+      const waLink = getWhatsAppLink('OMBENO', product.name, product.price, product.volume);
+      const card = document.createElement('div');
+      card.className = 'product-card';
+
+      const placeholderClass = product.type === 'green' ? 'placeholder-matcha' : 'placeholder-thai';
+      const brandLabel = product.type === 'green' ? 'OMBENO — Green Tea' : 'OMBENO — Thai Tea';
+
+      card.innerHTML = `
+                <div class="product-image ${placeholderClass}">
+                    <span>Botol ${product.name} ${product.volume}</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-brand ombeno-brand">${brandLabel}</span>
+                    <h3 class="product-title">${product.name}</h3>
+                    <span class="product-volume">${product.volume}</span>
+                    <div class="product-footer">
+                        <span class="product-price">${formatRupiah(product.price)}</span>
+                        <a href="${waLink}" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Pesan</a>
+                    </div>
+                </div>
+            `;
+
+      if (product.type === 'green') {
+        greenTeaGrid.appendChild(card);
+      } else {
+        thaiTeaGrid.appendChild(card);
+      }
+    });
+
+    // Scroll Spy untuk Navbar Active State
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
