@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
     rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" href="images/logo-minimal.png">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
   <style>
     :root {
       --primary: #3951b3;
@@ -94,6 +97,7 @@
     .nav-links {
       display: flex;
       gap: 24px;
+      align-items: center;
     }
 
     .nav-links a:hover {
@@ -217,6 +221,69 @@
       border-left: 4px solid var(--primary);
     }
 
+    /* Kontak Section */
+    .kontak-section {
+      background: white;
+      text-align: center;
+    }
+
+    .kontak-container {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .kontak-card {
+      background: var(--soft-blue);
+      padding: 32px 24px;
+      border-radius: 16px;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .kontak-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(57, 81, 179, 0.1);
+    }
+
+    .kontak-icon {
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+      color: var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .kontak-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .kontak-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .kontak-card .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
     /* Footer */
     footer {
       background: var(--primary-dark);
@@ -308,7 +375,10 @@
         <a href="#produk">Katalog</a>
         <a href="#manfaat">Manfaat</a>
         <a href="#testimoni">Testimoni</a>
-        <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites" style="padding:3px 18px" target="_blank" class="btn btn-primary">Pesan
+        <!-- Tambahan Menu Kontak di Navbar -->
+        <a href="#kontak">Kontak</a>
+        <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites" style="padding:3px 18px" target="_blank"
+          class="btn btn-primary">Pesan
           Sekarang</a>
       </div>
     </div>
@@ -419,12 +489,52 @@
     </div>
   </section>
 
+  <!-- SECTION KONTAK BARU -->
+  <section class="section-pad kontak-section" id="kontak">
+    <div class="container">
+      <h2 class="section-title">Hubungi Kami</h2>
+      <p class="section-sub">Punya pertanyaan atau ingin memesan? Hubungi kami melalui kanal di bawah ini.</p>
+
+      <div class="kontak-container">
+        <!-- Kontak WhatsApp -->
+        <div class="kontak-card">
+          <div class="kontak-icon">            
+            <i class="fa-brands fa-whatsapp fa-2x"></i>
+          </div>
+          <h4>WhatsApp Bisnis</h4>
+          <p>+62 895-2349-5376</p>
+          <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20bertanya." target="_blank"
+            class="btn btn-primary">Chat WhatsApp</a>
+        </div>
+
+        <!-- Kontak TikTok Sweetbites -->
+        <div class="kontak-card">
+          <div class="kontak-icon">
+            <i class="fa-brands fa-tiktok fa-2x"></i>
+          </div>
+          <h4>TikTok Sweetbites</h4>
+          <p>@sweet_bites.dmk</p>
+          <a href="https://tiktok.com/@sweet_bites.dmk" target="_blank" class="btn btn-primary">Kunjungi TikTok</a>
+        </div>
+
+        <!-- Kontak TikTok OMBENO -->
+        <div class="kontak-card">
+          <div class="kontak-icon">
+            <i class="fa-brands fa-tiktok fa-2x"></i>
+          </div>
+          <h4>TikTok OMBENO</h4>
+          <p>@ombeno.sweetbites</p>
+          <a href="https://tiktok.com/@ombeno.sweetbites" target="_blank" class="btn btn-primary">Kunjungi TikTok</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="images/logo-sweetbites.png" alt="Logo"
-            style="height: 50px; margin-bottom: 16px;"
+          <img src="images/logo-sweetbites.png" alt="Logo" style="height: 50px; margin-bottom: 16px;"
             onerror="this.outerHTML='<h2 style=color:white;>Sweetbites.</h2>'">
           <p style="color: #a0a8c8;">Sweetbites menghadirkan pilihan dessert untuk momen manis, dilengkapi OMBENO
             sebagai pilihan minuman untuk menemani setiap aktivitas.</p>
