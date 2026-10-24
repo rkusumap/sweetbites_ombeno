@@ -359,6 +359,65 @@
         display: none;
       }
     }
+
+    /* Popup background */
+    .image-popup {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Gambar di dalam popup */
+    .popup-image {
+        max-width: 90%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 10px;
+        animation: zoomIn 0.25s ease;
+    }
+
+    /* Caption gambar */
+    .popup-caption {
+        color: #fff;
+        font-size: 16px;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    /* Tombol tutup */
+    .popup-close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    /* Animasi */
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.85);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
   </style>
 </head>
 
@@ -405,9 +464,10 @@
       <p class="section-sub">Pilih dessert favoritmu dan lengkapi dengan minuman OMBENO.</p>
 
       <div class="product-grid">
-        <!-- Produk 1 -->
+        <!-- Produk tiramisu -->
         <div class="card">
-          <img src="images/sweetbites.jpg" alt="Tiramisu Cheese">
+          <img src="images/tiramisu.jpeg" alt="Tiramisu Cheese" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
           <div class="card-body">
             <h3>Tiramisu Cheese</h3>
             <p>Dessert lembut dengan lapisan biskuit dan cheese.</p>
@@ -423,13 +483,33 @@
               Detail Produk &rarr;</a>
           </div>
         </div>
-        <!-- Produk 2 -->
+        <!-- Produk thaitea -->
         <div class="card">
-          <img src="images/ombeno.jpg" alt="Thai Tea">
+          <img src="images/thaitea.png" alt="Thai Tea" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
           <div class="card-body">
-            <h3>OMBENO Thai Tea</h3>
+            <h3>OMBENO Thai Tea (230 ml)</h3>
             <p>Minuman teh Thailand yang creamy dan manis.</p>
-            <span class="price">Rp21.000</span>
+            <span class="price">Rp10.000</span>
+            <a href="https://wa.me/6289523495376?text=Halo%20OMBENO,%20saya%20ingin%20memesan%20Thai%20Tea%20500ml%20Rp21.000"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block;">Pesan via WA</a>
+              <a href="https://tiktok.com/@ombeno.sweetbites" target="_blank" class="btn btn-primary"
+                style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="thaitea.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+        
+        <!-- Produk 3 greentea -->
+        <div class="card">
+          <img src="images/greentea.png" alt="Green Tea" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>OMBENO Green Tea (220 ml)</h3>
+            <p>Minuman green tea Thailand yang creamy dan manis.</p>
+            <span class="price">Rp10.000</span>
             <a href="https://wa.me/6289523495376?text=Halo%20OMBENO,%20saya%20ingin%20memesan%20Thai%20Tea%20500ml%20Rp21.000"
               target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block;">Pesan via WA</a>
               <a href="https://tiktok.com/@ombeno.sweetbites" target="_blank" class="btn btn-primary"
@@ -583,6 +663,41 @@
     </div>
   </footer>
   <script>lucide.createIcons();</script>
+  <!-- Popup Gambar Produk -->
+  <div id="imagePopup" class="image-popup" onclick="closeImagePopup()">
+    <span class="popup-close">&times;</span>
+  
+    <img id="popupImage" class="popup-image" src="" alt="">
+  
+    <p id="popupCaption" class="popup-caption"></p>
+  </div>
+
+  <script>
+    function openImagePopup(src, alt) {
+      const popup = document.getElementById('imagePopup');
+      const popupImage = document.getElementById('popupImage');
+      const popupCaption = document.getElementById('popupCaption');
+
+      popupImage.src = src;
+      popupImage.alt = alt;
+      popupCaption.textContent = alt;
+
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImagePopup() {
+      document.getElementById('imagePopup').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Tutup popup menggunakan tombol Escape
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeImagePopup();
+      }
+    });
+  </script>
 </body>
 
 </html>
