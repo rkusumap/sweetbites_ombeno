@@ -222,7 +222,6 @@
       overflow: hidden;
     }
 
-    /* Decorative Background */
     .hero::before {
       content: '';
       position: absolute;
@@ -288,29 +287,19 @@
       align-items: center;
     }
 
-    /* Placeholder for Hero Images */
-    .hero-image-placeholder {
+    .hero-image-container {
       width: 100%;
-      height: 500px;
-      background: linear-gradient(135deg, var(--soft-pink), var(--soft-blue));
       border-radius: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: var(--primary);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-      position: relative;
       overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      background-color: var(--white);
     }
 
-    .hero-image-placeholder img {
-      width: 80%;
+    .hero-image-container img {
+      width: 100%;
       height: auto;
-      object-fit: contain;
-      position: absolute;
-      bottom: 0;
-      right: 0;
+      display: block;
+      object-fit: cover;
     }
 
     /* Brand Intro */
@@ -376,35 +365,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    /* Placeholder styles for products */
-    .placeholder-dessert {
-      background: linear-gradient(45deg, var(--soft-pink), var(--cream));
-    }
-
-    .placeholder-oreo {
-      background: linear-gradient(45deg, #e0e0e0, var(--white));
-    }
-
-    .placeholder-biscoff {
-      background: linear-gradient(45deg, #f5d4b1, #fff);
-    }
-
-    .placeholder-matcha {
-      background: linear-gradient(45deg, var(--tea-green), #fff);
-    }
-
-    .placeholder-thai {
-      background: linear-gradient(45deg, var(--tea-brown-light), #fff);
-    }
-
-    .product-image span {
-      color: var(--muted-text);
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 20px;
     }
 
     .product-info {
@@ -534,31 +494,6 @@
       font-size: 0.95rem;
     }
 
-    /* Lifestyle */
-    .lifestyle-section {
-      background-color: var(--cream);
-      text-align: center;
-    }
-
-    .lifestyle-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .lifestyle-img {
-      width: 100%;
-      height: 300px;
-      background-color: #eaeaea;
-      border-radius: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--muted-text);
-      background: linear-gradient(45deg, var(--soft-blue), var(--soft-pink));
-    }
-
     /* CTA Section */
     .cta-section {
       background-color: var(--primary);
@@ -614,7 +549,6 @@
     .footer-brand img {
       height: 60px;
       margin-bottom: 16px;
-      /* Filter putih agar logo biru terlihat di background gelap */
       /* filter: brightness(0) invert(1); */
     }
 
@@ -687,16 +621,11 @@
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
-
-      .lifestyle-grid {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
     @media (max-width: 768px) {
       .nav-links {
         display: none;
-        /* Add mobile menu toggle in JS */
         position: absolute;
         top: 80px;
         left: 0;
@@ -728,10 +657,6 @@
       }
 
       .product-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .lifestyle-grid {
         grid-template-columns: 1fr;
       }
 
@@ -784,11 +709,9 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-image-placeholder">
-          <!-- Placeholder Gambar Hero -->
-          <span style="z-index:1; text-align:center;">Foto Produk Dessert & OMBENO <br>(Placeholder)</span>
-          <!-- Jika Anda punya gambar hero transparan, pasang di sini -->
-          <!-- <img src="images/hero-product.png" alt="Sweetbites Dessert"> -->
+        <div class="hero-image-container">
+          <!-- Menggunakan gambar poster Sweetbites yang Anda kirim -->
+          <img src="sweetbites.jpg" alt="Sweetbites Dessert Collection">
         </div>
       </div>
     </div>
@@ -823,6 +746,13 @@
     <div class="container">
       <h2 class="section-title" style="color: var(--primary);">Complete Your Sweet Moment with OMBENO.</h2>
       <p class="section-subtitle">Lengkapi momen manismu dengan pilihan minuman Green Tea dan Thai Tea dari OMBENO.</p>
+
+      <!-- Menampilkan gambar poster OMBENO di sini -->
+      <div
+        style="max-width: 600px; margin: 0 auto 48px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <img src="ombeno.jpg" alt="OMBENO Green Tea dan Thai Tea"
+          style="width: 100%; height: auto; display: block;">
+      </div>
 
       <h3 class="ombeno-category-title green-tea-title">OMBENO Green Tea</h3>
       <div class="product-grid" id="greenTeaGrid">
@@ -897,34 +827,16 @@
     </div>
   </section>
 
-  <!-- Lifestyle (Combo) -->
-  <section class="lifestyle-section section-padding">
-    <div class="container">
-      <h2 class="section-title">Make It a Sweeter Combo.</h2>
-      <p class="section-subtitle">Temukan kombinasi dessert dan minuman favoritmu untuk melengkapi waktu santai.</p>
-
-      <div class="lifestyle-grid">
-        <div class="lifestyle-img">Oreo Cheese + Green Tea</div>
-        <div class="lifestyle-img">Tiramisu Cheese + Thai Tea</div>
-        <div class="lifestyle-img">Banana Pudding + Green Tea</div>
-      </div>
-
-      <div style="margin-top: 48px;">
-        <a href="#dessert" class="btn btn-primary">Pilih Produk Favoritmu</a>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA Section -->
-  <section class="cta-section" id="kontak">
+  <section class="cta-section" id="pesan">
     <div class="container">
       <h2>Ready for Something Sweet?</h2>
       <p>Pilih dessert Sweetbites favoritmu atau lengkapi momenmu dengan minuman OMBENO. Temukan pilihan yang sesuai dan
         lakukan pemesanan dengan mudah.</p>
       <div class="cta-buttons">
-        <a href="https://wa.me/6281234567890?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20dessert."
+        <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20dessert."
           target="_blank" class="btn btn-white">Pesan Dessert</a>
-        <a href="https://wa.me/6281234567890?text=Halo%20OMBENO,%20saya%20ingin%20memesan%20minuman." target="_blank"
+        <a href="https://wa.me/6289523495376?text=Halo%20OMBENO,%20saya%20ingin%20memesan%20minuman." target="_blank"
           class="btn btn-outline" style="border-color: white; color: white;">Pesan Minuman</a>
       </div>
     </div>
@@ -962,14 +874,25 @@
         </div>
 
         <div class="footer-col">
-          <h4>Kontak Kami</h4>
+          <h4>Kontak & Sosial Media</h4>
           <ul>
-            <li><i data-lucide="message-circle" style="display:inline; width:16px; height:16px; margin-right:8px;"></i>
-              WhatsApp Business</li>
-            <li><i data-lucide="instagram" style="display:inline; width:16px; height:16px; margin-right:8px;"></i>
-              @sweetbites.id</li>
-            <li><i data-lucide="mail" style="display:inline; width:16px; height:16px; margin-right:8px;"></i>
-              hello@sweetbites.id</li>
+            <li>
+              <a href="https://wa.me/6289523495376" target="_blank" style="display:flex; align-items:center; gap:8px;">
+                <i data-lucide="message-circle" style="width:16px; height:16px;"></i> WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@sweet_bites.dmk" target="_blank"
+                style="display:flex; align-items:center; gap:8px;">
+                <i data-lucide="music" style="width:16px; height:16px;"></i> TikTok Sweetbites
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@ombeno.sweetbites" target="_blank"
+                style="display:flex; align-items:center; gap:8px;">
+                <i data-lucide="music" style="width:16px; height:16px;"></i> TikTok OMBENO
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -1020,43 +943,37 @@
         id: 'sweetbites-banana-pudding-stroberi',
         name: 'Banana Pudding Stroberi',
         price: 15000,
-        desc: 'Perpaduan banana pudding dan stroberi dalam sajian dessert yang menarik untuk menemani waktu santai.',
-        placeholderClass: 'placeholder-dessert'
+        desc: 'Perpaduan banana pudding dan stroberi dalam sajian dessert yang menarik untuk menemani waktu santai.'
       },
       {
         id: 'sweetbites-tiramisu-cheese',
         name: 'Tiramisu Cheese',
         price: 15000,
-        desc: 'Pilihan dessert dengan karakter tiramisu dan sentuhan cheese yang menggugah selera.',
-        placeholderClass: 'placeholder-dessert'
+        desc: 'Pilihan dessert dengan karakter tiramisu dan sentuhan cheese yang menggugah selera.'
       },
       {
         id: 'sweetbites-cheesecuit',
         name: 'Cheesecuit',
         price: 15000,
-        desc: 'Pilihan dessert dengan perpaduan biskuit dan cheese yang cocok untuk menemani momen manis.',
-        placeholderClass: 'placeholder-dessert'
+        desc: 'Pilihan dessert dengan perpaduan biskuit dan cheese yang cocok untuk menemani momen manis.'
       },
       {
         id: 'sweetbites-oreo-cheese',
         name: 'Oreo Cheese',
         price: 15000,
-        desc: 'Perpaduan Oreo dan cheese dalam sajian dessert yang menarik untuk dinikmati kapan saja.',
-        placeholderClass: 'placeholder-oreo'
+        desc: 'Perpaduan Oreo dan cheese dalam sajian dessert yang menarik untuk dinikmati kapan saja.'
       },
       {
         id: 'sweetbites-lotus-biscoff-cheese',
         name: 'Lotus Biscoff Cheese',
         price: 20000,
-        desc: 'Pilihan dessert dengan karakter biskuit Lotus Biscoff dan sentuhan cheese yang menggugah selera.',
-        placeholderClass: 'placeholder-biscoff'
+        desc: 'Pilihan dessert dengan karakter biskuit Lotus Biscoff dan sentuhan cheese yang menggugah selera.'
       },
       {
         id: 'sweetbites-cheese-cake',
         name: 'Cheese Cake',
         price: 15000,
-        desc: 'Cheese cake dengan tampilan menggoda, cocok untuk melengkapi waktu santai dan momen spesial.',
-        placeholderClass: 'placeholder-dessert'
+        desc: 'Cheese cake dengan tampilan menggoda, cocok untuk melengkapi waktu santai dan momen spesial.'
       }
     ];
 
@@ -1083,7 +1000,7 @@
 
     // Fungsi Generate Link WhatsApp
     const getWhatsAppLink = (brand, productName, price, volume = '') => {
-      const phone = '6281234567890'; // GANTI DENGAN NOMOR WHATSAPP ASLI
+      const phone = '6289523495376'; // Nomor WA Anda
       let message = '';
       if (brand === 'Sweetbites') {
         message = `Halo Sweetbites, saya ingin memesan ${productName} dengan harga ${formatRupiah(price)}.`;
@@ -1095,13 +1012,16 @@
 
     // Render Produk Dessert
     const dessertGrid = document.getElementById('dessertGrid');
-    desserts.forEach(product => {
+    desserts.forEach((product, index) => {
       const waLink = getWhatsAppLink('Sweetbites', product.name, product.price);
       const card = document.createElement('div');
       card.className = 'product-card';
+
+      // Karena hanya ada 2 gambar, untuk dessert kita pakai gambar poster sweetbites secara bergantian (atau Anda bisa ganti dengan gambar asli jika ada)
+      // Di sini saya gunakan gambar yang sama untuk semua produk dessert sebagai ilustrasi
       card.innerHTML = `
-                <div class="product-image ${product.placeholderClass}">
-                    <span>Foto ${product.name}</span>
+                <div class="product-image" style="background-color: var(--white); padding: 10px;">
+                    <img src="sweetbites.jpg" alt="${product.name}" style="object-fit: contain; border-radius: 12px; height: 100%;">
                 </div>
                 <div class="product-info">
                     <span class="product-brand">Sweetbites — Dessert</span>
@@ -1125,12 +1045,12 @@
       const card = document.createElement('div');
       card.className = 'product-card';
 
-      const placeholderClass = product.type === 'green' ? 'placeholder-matcha' : 'placeholder-thai';
       const brandLabel = product.type === 'green' ? 'OMBENO — Green Tea' : 'OMBENO — Thai Tea';
 
+      // Menggunakan gambar poster OMBENO untuk semua varian minuman
       card.innerHTML = `
-                <div class="product-image ${placeholderClass}">
-                    <span>Botol ${product.name} ${product.volume}</span>
+                <div class="product-image" style="background-color: var(--white); padding: 10px;">
+                    <img src="ombeno.jpg" alt="${product.name} ${product.volume}" style="object-fit: contain; border-radius: 12px; height: 100%;">
                 </div>
                 <div class="product-info">
                     <span class="product-brand ombeno-brand">${brandLabel}</span>
